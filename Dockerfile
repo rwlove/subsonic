@@ -1,4 +1,4 @@
-FROM fedora:21
+FROM fedora:23
 
 #####
 # TODO
@@ -6,8 +6,7 @@ FROM fedora:21
 # 1) Is there a way to hardcode the subsonic premium license key?
 # 2) Add personal user account
 # 3) Make passwords dynamic
-# 4) Remove dependency on supervisor
-# 5) Pass volumes in dynamically
+# 4) Pass volumes in dynamically
 #
 #####
 
@@ -15,7 +14,7 @@ FROM fedora:21
 # Install Packages
 #####
 
-RUN yum -y install \
+RUN dnf -y install \
 java-1.8.0-openjdk \
 wget
 
@@ -23,8 +22,7 @@ wget
 # Install and Configure Subsonic service
 #####
 
-RUN wget http://www.subsonic.org/pages/download2.jsp?target=subsonic-5.3.rpm
-
+RUN wget http://www.subsonic.org/pages/download2.jsp?target=subsonic-6.0.beta1.rpm
 RUN groupadd -g 1001 media
 
 RUN groupadd -g 1002 subsonic && \
@@ -53,4 +51,4 @@ CMD ["/usr/bin/subsonic --context-path=/subsonic --max-memory=200 --port=0 --htt
 # Clean up
 #####
 
-RUN yum clean all
+RUN dnf clean all

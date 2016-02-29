@@ -2,7 +2,6 @@
 
 docker run \
 -dt \
---privileged \
 -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
 -h subsonic \
-services/subsonic:5.3
+services/subsonic:6.0

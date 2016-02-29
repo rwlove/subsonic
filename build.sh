@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t services/subsonic:5.3 .
+docker build -t services/subsonic:6.0 .
